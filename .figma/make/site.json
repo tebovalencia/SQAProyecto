@@ -1,0 +1,10 @@
+{
+  "description": "Streamlines automotive workshop management with dashboards, work order tracking, inventory control, and parts traceability for efficient operations.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

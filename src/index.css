@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-display: 'Barlow', system-ui, sans-serif;
+  --font-mono: 'DM Mono', ui-monospace, monospace;
+
+  --color-brand: var(--brand-primary);
+  --color-brand-hover: var(--brand-primary-hover);
+  --color-brand-soft: var(--brand-primary-soft);
+  --color-sidebar: var(--brand-sidebar);
+  --color-sidebar-hover: var(--brand-sidebar-hover);
+  --color-surface: var(--brand-surface);
+  --color-card: var(--brand-card);
+  --color-slate-850: #1a1f2e;
+}
+
+:root {
+  --brand-primary: #f05a28;
+  --brand-primary-hover: #d44a1e;
+  --brand-primary-soft: #fff4ef;
+  --brand-primary-muted: #ffe3d5;
+  --brand-sidebar: #0d1117;
+  --brand-sidebar-hover: #161b22;
+  --brand-sidebar-border: #1e2530;
+  --brand-sidebar-muted: #6b7a90;
+  --brand-sidebar-text: #8a95a6;
+  --brand-sidebar-text-hover: #c8d0dc;
+  --brand-sidebar-section: #3d4a5c;
+  --brand-surface: #f0f2f5;
+  --brand-card: #ffffff;
+  --brand-border: #e8ebf0;
+  --brand-muted-bg: #f4f6f9;
+  --brand-table-head: #f8f9fb;
+  --brand-success: #16a34a;
+  --brand-success-bg: #f0fdf4;
+  --brand-warning: #d97706;
+  --brand-warning-bg: #fffbeb;
+  --brand-info: #2563eb;
+  --brand-info-bg: #eff6ff;
+  --brand-danger: #dc2626;
+  --brand-danger-bg: #fef2f2;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  min-height: 100dvh;
+}
+
+html,
+body {
+  @apply bg-surface text-slate-800;
+  font-family: var(--font-sans);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Notch / barra de estado (iOS, Android, PWA). viewport-fit=cover en index.html */
+:root {
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+}
+
+/** Padding superior = base + zona segura del dispositivo */
+.safe-pt {
+  padding-top: calc(0.625rem + var(--safe-top));
+}
+
+.safe-pt-md {
+  padding-top: calc(1rem + var(--safe-top));
+}
+
+@media (min-width: 1024px) {
+  .safe-pt,
+  .safe-pt-md {
+    padding-top: revert-layer;
+  }
+}
+
+.safe-pb {
+  padding-bottom: calc(0px + var(--safe-bottom));
+}
+
+.safe-px {
+  padding-left: max(0.75rem, var(--safe-left));
+  padding-right: max(0.75rem, var(--safe-right));
+}
+
+@media (min-width: 1024px) {
+  .safe-px {
+    padding-left: revert-layer;
+    padding-right: revert-layer;
+  }
+}
+
+/* Tablas: scroll horizontal cómodo en móvil */
+.overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 3px;
+}
+*:hover::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
